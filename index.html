@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Yeah</title>
+    <style>
+      @import url('https://fonts.cdnfonts.com/css/w95fa');
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        background-color: black;
+      }
+      
+      .window {
+        font-family: 'W95FA', sans-serif;
+        
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+        
+        border-right: 2px solid #787878;
+        border-bottom: 2px solid #787878;
+        
+        background-color: #c0c0c0;
+        
+        gap: 4px;
+        
+        position: relative;
+        
+        width: clamp(attr(width type(<length>)), 250px, 100%);
+        height: clamp(attr(height type(<length>)), 150px, 100%);;
+        
+        display: flex;
+        flex-flow: column nowrap;
+        
+        & > .topbar {
+          display: flex;
+          flex-flow: row nowrap;
+          
+          align-items: stretch;
+          justify-content: space-between;
+          
+          height: 24px;
+          
+          background-color: #000080;
+          color: white;
+          
+          & > .title {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: stretch;
+            
+            gap: 4px;
+          
+            & > * {
+              margin: 0;
+              padding: 0;
+            }
+            
+            padding: 4px;
+          }
+          
+          & > .controls {
+            padding: 2px;
+            
+            display: flex;
+            flex-flow: row nowrap;
+            
+            gap: 2px;
+            
+            align-items: start;
+            
+            & > button {
+              margin: 0;
+            }
+          }
+        }
+      }
+      
+      .bulge {
+        padding: 2px;
+        margin: 2px;
+        
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+        
+        border-right: 2px solid #787878;
+        border-bottom: 2px solid #787878;
+      }
+      
+      .inset {
+        margin: 2px;
+        padding: 2px;
+        
+        border-right: 2px solid white;
+        border-bottom: 2px solid white;
+        
+        border-top: 2px solid #787878;
+        border-left: 2px solid #787878;
+      }
+      
+      button {
+        margin: 2px;
+        
+        background-color: #c0c0c0;
+        
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+        
+        border-right: 2px solid #787878;
+        border-bottom: 2px solid #787878;
+        
+        cursor: pointer;
+        
+        padding-left: 4px;
+        padding-right: 4px;
+        
+        &:disabled {
+          cursor: unset;
+          
+          filter: brightness(0.5);
+          color: #b0b0b0;
+        }
+        
+        &:hover:not([disabled]) {
+          filter: brightness(0.95);
+        }
+        
+        &:active:not([disabled]) {
+          background-color: #909090;
+        
+          border-right: 2px solid white;
+          border-bottom: 2px solid white;
+      
+          border-top: 2px solid #787878;
+          border-left: 2px solid #787878;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="window" width="250px" height="100px">
+      <div class="topbar">
+        <div class="title">
+          <img src="https://placehold.co/32"><p>Window Title</p>
+        </div>
+        <div class="controls">
+          <button>-</button>
+          <button>□</button>
+          <button disabled>x</button>
+        </div>
+      </div>
+      <div class="body">
+        <h1>Hi!</h1>
+        
+        <div class="bulge">
+          <p>Hi</p>
+          <div class="inset">
+            <p>Bye</p>
+          </div>
+        </div>
+        
+        <button disabled>Exit</button>
+      </div>
+    </div>
+  </body>
+</html>
