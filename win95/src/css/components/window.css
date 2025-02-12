@@ -1,0 +1,105 @@
+window,
+.window {
+	border-top: 2px solid white;
+	border-left: 2px solid white;
+
+	border-right: 2px solid #787878;
+	border-bottom: 2px solid #787878;
+
+	background-color: #c0c0c0;
+
+	gap: 4px;
+
+	position: absolute;
+
+	width: attr(data-w-width px, 250px);
+	height: attr(data-w-height px, 150px);
+
+	left: attr(data-w-posx px, 16px);
+	top: attr(data-w-posy px, 16px);
+
+	display: flex;
+	flex-flow: column nowrap;
+
+	& * {
+		user-select: none;
+	}
+
+	& > .topbar {
+		display: flex;
+		flex-flow: row nowrap;
+
+		align-items: stretch;
+		justify-content: space-between;
+
+		height: 24px;
+
+		background-color: #000080;
+		color: white;
+
+		& > .title {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: stretch;
+
+			gap: 4px;
+
+			& > * {
+				margin: 0;
+				padding: 0;
+			}
+
+			padding: 4px;
+		}
+
+		& > .controls {
+			padding: 2px;
+
+			display: flex;
+			flex-flow: row nowrap;
+
+			gap: 2px;
+
+			align-items: stretch;
+
+			& > button {
+				margin: 0;
+			}
+		}
+	}
+
+	& > .controlbar {
+		height: 24px;
+		display: flex;
+		flex-flow: row nowrap;
+		padding: 0;
+		margin: -4px 0 0 0;
+		border-bottom: 1px solid #787878;
+
+		& > .controlitem {
+			border: none;
+			margin: 0;
+			padding-left: 6px;
+			padding-right: 6px;
+
+			&::first-letter {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	& > .body {
+		position: relative;
+
+		flex: 1;
+		flex-shrink: 1;
+		flex-grow: 1;
+	}
+
+	&:has(> .controlbar) {
+		& > .body {
+			margin-top: -4px;
+			border-top: 1px solid white;
+		}
+	}
+}

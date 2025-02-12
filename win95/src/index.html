@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Win95</title>
+
+		<link href="./css/index.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="windowlayer l-0">
+			<div class="window" data-w-width="250" data-w-height="500">
+				<div class="topbar">
+					<div class="title">
+						<img src="https://placehold.co/32" />
+						<p>Window Title</p>
+					</div>
+					<div class="controls">
+						<button>_</button>
+						<button>□</button>
+						<button disabled>x</button>
+					</div>
+				</div>
+				<div class="controlbar">
+					<button class="controlitem">File</button>
+					<button class="controlitem">Edit</button>
+					<button class="controlitem">Search</button>
+				</div>
+				<div class="body">
+					<p>Cool window</p>
+
+					<div class="bulge">
+						<p>Terminal</p>
+						<div class="inset nopadding">
+							<textarea
+								cols="30"
+								rows="10"
+								class="fillparent nomargin"
+							>
+    This is a terminal test.</textarea
+							>
+						</div>
+					</div>
+
+					<div class="bulge listcontainer horizontal fill">
+						<div class="inset">Cols: 30</div>
+						<div class="inset">Rows: 10</div>
+						<button class="nospacing">Clear</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="systemlayer l-1">
+			<div class="taskbar">
+				<button class="nomargin">
+					<img src="./assets/start_icon.png" />Start
+				</button>
+			</div>
+		</div>
+		<div class="desktoplayer l-bottom">
+			<div class="desktopbackground"></div>
+			<div class="desktopicons"></div>
+		</div>
+	</body>
+</html>

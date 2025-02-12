@@ -1,0 +1,48 @@
+@import url(./components/window.css);
+@import url(./components/taskbar.css);
+@import url(./components/desktop.css);
+
+button {
+	margin: 2px;
+
+	background-color: #c0c0c0;
+
+	border-top: 2px solid white;
+	border-left: 2px solid white;
+
+	border-right: 2px solid #787878;
+	border-bottom: 2px solid #787878;
+
+	cursor: pointer;
+
+	display: flex;
+	flex-flow: row nowrap;
+	gap: 2px;
+
+	align-items: center;
+	justify-content: center;
+
+	padding-left: 4px;
+	padding-right: 4px;
+
+	&:disabled {
+		cursor: unset;
+
+		filter: brightness(0.5);
+		color: #b0b0b0;
+	}
+
+	&:hover:not([disabled]) {
+		filter: brightness(0.95);
+	}
+
+	&:active:not([disabled]) {
+		background-color: #909090;
+
+		border-right: 2px solid white;
+		border-bottom: 2px solid white;
+
+		border-top: 2px solid #787878;
+		border-left: 2px solid #787878;
+	}
+}
