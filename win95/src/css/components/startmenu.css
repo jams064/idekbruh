@@ -1,14 +1,14 @@
 .startmenu {
-    width: 200px;
-    height: 250px;
+	width: 200px;
+	height: 250px;
 
-    background-color: var(--default-bg-col);
+	background-color: var(--default-bg-col);
 
-    position: absolute;
+	position: absolute;
 
-    bottom: 28px;
-    left: 2px;
-    z-index: 2;
+	bottom: 28px;
+	left: 2px;
+	z-index: 2;
 
 	border-top: 2px solid var(--lighter-bg-col);
 	border-left: 2px solid var(--lighter-bg-col);
@@ -16,51 +16,68 @@
 	border-right: 2px solid var(--darker-bg-col);
 	border-bottom: 2px solid var(--darker-bg-col);
 
-    display: flex;
-    flex-flow: row nowrap;
+	display: flex;
+	flex-flow: row nowrap;
 
-    align-items: stretch;
-    justify-content: start;
+	align-items: stretch;
+	justify-content: start;
 
-    & > .leftsidebrand {
-        width: 40px;
-        height: 100%;
+	& > .leftsidebrand {
+		width: 40px;
+		height: 100%;
 
-        background-color: var(--dim-bg-col);
+		background-color: var(--dim-bg-col);
 
-        transform: rotate(180deg);
+		transform: rotate(180deg);
 
-        display: flex;
-        align-items: start;
-        justify-content: center;
+		display: flex;
+		align-items: start;
+		justify-content: center;
 
-        & > p {
-            padding-top: 4px;
-            font-size: 32px;
-            writing-mode: vertical-lr;
-            text-orientation: sideways;
-            color: var(--default-bg-col);
-        }
-    }
+		& > p {
+			padding-top: 4px;
+			font-size: 32px;
+			writing-mode: vertical-lr;
+			text-orientation: sideways;
+			color: var(--default-bg-col);
+		}
+	}
 
-    & > .categorylist {
-        flex: 1;
-        flex-grow: 1;
-        flex-shrink: 1;
+	& > .categorylist {
+		flex: 1;
+		flex-grow: 1;
+		flex-shrink: 1;
 
-        /* background-color: white; */
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: stretch;
+		/* background-color: white; */
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: stretch;
 
-        & > .startmenucategory {
-            font-size: 18px;
+		& > .startmenucategory {
+			justify-content: flex-start;
 
-            border: none;
-            height: 32px;
+			font-size: 18px;
 
-            flex: 1;
-            margin: 0;
-        }
-    }
+			border: none;
+			height: 32px;
+
+			flex: 1;
+			margin: 0;
+
+			&:has(+ .seperate) {
+				border-bottom: 1px solid var(--darker-bg-col);
+			}
+
+			&.seperate {
+				border-top: 1px solid var(--lighter-bg-col);
+
+				&:has(+ .startmenucategory) {
+					border-bottom: 1px solid var(--darker-bg-col);
+				}
+				& + .startmenucategory {
+					border-top: 1px solid var(--lighter-bg-col);
+				}
+			}
+		}
+	}
 }

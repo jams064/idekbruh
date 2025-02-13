@@ -18,7 +18,7 @@ button {
 
 	display: flex;
 	flex-flow: row nowrap;
-	gap: 0.4em;
+	gap: 0.15em;
 
 	align-items: center;
 	justify-content: center;
@@ -27,7 +27,7 @@ button {
 	padding-right: 4px;
 
 	& > img {
-		height: 1em;
+		height: 1.5em;
 	}
 
 	&:disabled {
@@ -46,7 +46,7 @@ button {
 
 		border-top: 2px solid var(--darker-bg-col);
 		border-left: 2px solid var(--darker-bg-col);
-	
+
 		border-right: 2px solid var(--lighter-bg-col);
 		border-bottom: 2px solid var(--lighter-bg-col);
 	}
