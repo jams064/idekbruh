@@ -2,22 +2,22 @@
 	padding: 2px;
 	margin: 2px;
 
-	border-top: 2px solid white;
-	border-left: 2px solid white;
+	border-top: 2px solid var(--lighter-bg-col);
+	border-left: 2px solid var(--lighter-bg-col);
 
-	border-right: 2px solid #787878;
-	border-bottom: 2px solid #787878;
+	border-right: 2px solid var(--darker-bg-col);
+	border-bottom: 2px solid var(--darker-bg-col);
 }
 
 .inset {
 	margin: 2px;
 	padding: 2px;
 
-	border-right: 2px solid white;
-	border-bottom: 2px solid white;
+	border-right: 2px solid var(--lighter-bg-col);
+	border-bottom: 2px solid var(--lighter-bg-col);
 
-	border-top: 2px solid #787878;
-	border-left: 2px solid #787878;
+	border-top: 2px solid var(--darker-bg-col);
+	border-left: 2px solid var(--darker-bg-col);
 }
 
 .listcontainer {

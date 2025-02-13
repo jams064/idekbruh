@@ -1,7 +1,7 @@
 .taskbar {
-	background-color: #c0c0c0;
+	background-color: var(--default-bg-col);
 
-	border-top: 2px solid white;
+	border-top: 2px solid var(--lighter-bg-col);
 
 	width: 100%;
 	min-height: 23px;

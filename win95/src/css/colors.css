@@ -1,0 +1,9 @@
+:root {
+    --default-bg-col: #c0c0c0;
+    --darker-bg-col: #787878;
+    --lighter-bg-col: #ffffff;
+    --dim-bg-col: #909090;
+
+    --default-tb-col: #000080;
+    --default-desktop-bg-col: cadetblue;
+}

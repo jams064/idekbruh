@@ -1,19 +1,21 @@
 window,
 .window {
-	border-top: 2px solid white;
-	border-left: 2px solid white;
+	border-top: 2px solid var(--lighter-bg-col);
+	border-left: 2px solid var(--lighter-bg-col);
 
-	border-right: 2px solid #787878;
-	border-bottom: 2px solid #787878;
+	border-right: 2px solid var(--darker-bg-col);
+	border-bottom: 2px solid var(--darker-bg-col);
 
-	background-color: #c0c0c0;
+	background-color: var(--default-bg-col);
 
 	gap: 4px;
 
 	position: absolute;
 
+	overflow: hidden;
+
 	width: attr(data-w-width px, 250px);
-	height: attr(data-w-height px, 150px);
+	height: attr(data-w-height px, max-content);
 
 	left: attr(data-w-posx px, 16px);
 	top: attr(data-w-posy px, 16px);
@@ -34,7 +36,7 @@ window,
 
 		height: 24px;
 
-		background-color: #000080;
+		background-color: var(--default-tb-col);
 		color: white;
 
 		& > .title {
@@ -74,7 +76,7 @@ window,
 		flex-flow: row nowrap;
 		padding: 0;
 		margin: -4px 0 0 0;
-		border-bottom: 1px solid #787878;
+		border-bottom: 1px solid var(--darker-bg-col);
 
 		& > .controlitem {
 			border: none;
@@ -99,7 +101,7 @@ window,
 	&:has(> .controlbar) {
 		& > .body {
 			margin-top: -4px;
-			border-top: 1px solid white;
+			border-top: 1px solid var(--lighter-bg-col);
 		}
 	}
 }

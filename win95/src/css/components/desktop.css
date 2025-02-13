@@ -1,5 +1,5 @@
 .desktopbackground {
-	background-color: cadetblue;
+	background-color: var(--default-desktop-bg-col);
 
 	min-width: 100vw;
 	min-height: 100vh;
