@@ -5,73 +5,21 @@
 		<title>Win95</title>
 
 		<link href="./css/index.css" rel="stylesheet" />
+		<script src="./js/main.js" defer></script>
 	</head>
 	<body>
-		<div class="windowlayer l-0">
-			<div class="window" data-w-width="500" data-w-height="300">
-				<div class="topbar">
-					<div class="title">
-						<img src="./assets/start_icon.png" />
-						<p>Window</p>
-					</div>
-					<div class="controls">
-						<button>_</button>
-						<button>□</button>
-						<button disabled>x</button>
-					</div>
-				</div>
-				<div class="controlbar">
-					<button class="controlitem">File</button>
-					<button class="controlitem">Edit</button>
-					<button class="controlitem">Search</button>
-				</div>
-				<div class="body">
-					<p>Cool window</p>
-
-					<div class="bulge">
-						<p>Terminal</p>
-						<div class="inset nopadding">
-							<textarea
-								cols="30"
-								rows="10"
-								class="fillparent nomargin"
-							>
-    This is a terminal test.</textarea
-							>
-						</div>
-					</div>
-
-					<div class="bulge listcontainer horizontal fill">
-						<div class="inset">Cols: 30</div>
-						<div class="inset">Rows: 10</div>
-						<button class="nospacing">Clear</button>
-					</div>
-				</div>
-			</div>
-		</div>
+		<div class="windowlayer l-0"></div>
 		<div class="systemlayer l-1">
-			<div class="startmenu">
+			<div class="startmenu hidden" id="menu_start">
 				<div class="leftsidebrand">
-					<p><b>Windows</b>95</p>
+					<p>Start Menu</p>
 				</div>
 				<div class="categorylist">
-					<button class="startmenucategory">
-						<img src="./assets/programs_icon.png" />Programs
+					<button class="startmenucategory" id="btn_start_pages">
+						<img src="./assets/programs_icon.png" />Pages
 					</button>
 					<button class="startmenucategory">
-						<img src="./assets/documents_icon.png" />Documents
-					</button>
-					<button class="startmenucategory">
-						<img src="./assets/settings_icon.png" />Settings
-					</button>
-					<button class="startmenucategory">
-						<img src="./assets/find_icon.png" />Find
-					</button>
-					<button class="startmenucategory">
-						<img src="./assets/help_icon.png" />Help
-					</button>
-					<button class="startmenucategory">
-						<img src="./assets/run_icon.png" />Run
+						<img src="./assets/help_icon.png" />About
 					</button>
 					<button class="startmenucategory seperate">
 						<img src="./assets/shutdown_icon.png" />
@@ -80,7 +28,7 @@
 				</div>
 			</div>
 			<div class="taskbar">
-				<button class="nomargin">
+				<button class="nomargin" id="btn_start">
 					<img src="./assets/start_icon.png" />Start
 				</button>
 			</div>

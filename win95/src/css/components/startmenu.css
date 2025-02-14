@@ -60,6 +60,7 @@
 
 			border: none;
 			height: 32px;
+			max-height: 48px;
 
 			flex: 1;
 			margin: 0;

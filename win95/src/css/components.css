@@ -41,7 +41,8 @@ button {
 		filter: brightness(0.95);
 	}
 
-	&:active:not([disabled]) {
+	&:active:not([disabled]),
+	&.pressed {
 		background-color: var(--dim-bg-col);
 
 		border-top: 2px solid var(--darker-bg-col);
