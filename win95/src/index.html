@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 
 <html>
-	<head>
-		<title>Win95</title>
 
-		<link href="./css/index.css" rel="stylesheet" />
-		<script src="./js/main.js" defer></script>
-	</head>
-	<body>
-		<div class="windowlayer l-0"></div>
-		<div class="systemlayer l-1">
-			<div class="startmenu hidden" id="menu_start">
-				<div class="leftsidebrand">
-					<p>Start Menu</p>
-				</div>
-				<div class="categorylist">
-					<button class="startmenucategory" id="btn_start_pages">
-						<img src="./assets/programs_icon.png" />Pages
-					</button>
-					<button class="startmenucategory">
-						<img src="./assets/help_icon.png" />About
-					</button>
-					<button class="startmenucategory seperate">
-						<img src="./assets/shutdown_icon.png" />
-						Shut Down
-					</button>
-				</div>
+<head>
+	<title>Win95</title>
+
+	<link href="./css/index.css" rel="stylesheet" />
+
+	<script src="./js/window_definitions.js"></script>
+
+	<script src="./js/windows.js" defer></script>
+	<script src="./js/taskbar.js" defer></script>
+	<script src="./js/main.js" defer></script>
+</head>
+
+<body>
+	<div class="windowlayer l-0"></div>
+	<div class="systemlayer l-1">
+		<div class="startmenu hidden" id="menu_start">
+			<div class="leftsidebrand">
+				<p><b>Browser</b> 95</p>
 			</div>
-			<div class="taskbar">
-				<button class="nomargin" id="btn_start">
-					<img src="./assets/start_icon.png" />Start
+			<div class="categorylist">
+				<button class="startmenucategory" id="btn_start_pages">
+					<img src="./assets/programs_icon.png" />Pages
+				</button>
+				<button class="startmenucategory" id="btn_start_about">
+					<img src="./assets/help_icon.png" />About
+				</button>
+				<button class="startmenucategory" id="btn_start_writer">
+					<img src="./assets/run_icon.png" />Window Writer
+				</button>
+				<button class="startmenucategory seperate">
+					<img src="./assets/shutdown_icon.png" />
+					Shut Down
 				</button>
 			</div>
 		</div>
-		<div class="desktoplayer l-bottom">
-			<div class="desktopbackground"></div>
-			<div class="desktopicons"></div>
+		<div class="taskbar">
+			<button class="nomargin" id="btn_start">
+				<img src="./assets/start_icon.png" />Start
+			</button>
+			<div class="nospacing" id="menu_taskbar">
+
+			</div>
 		</div>
-	</body>
+	</div>
+	<div class="desktoplayer l-bottom">
+		<div class="desktopbackground"></div>
+		<div class="desktopicons"></div>
+	</div>
+</body>
+
 </html>

@@ -12,6 +12,10 @@
 	border: none;
 }
 
+img {
+	pointer-events: none;
+}
+
 body {
 	min-width: 100vw;
 	min-height: 100vh;
@@ -25,7 +29,7 @@ body {
 	box-sizing: border-box;
 }
 
-body > div {
+body>div {
 	display: block;
 	position: absolute;
 

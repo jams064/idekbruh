@@ -15,4 +15,28 @@
 
 	display: flex;
 	flex-flow: row nowrap;
+	align-items: stretch;
+	justify-content: flex-start;
+
+	&>div {
+		margin-left: 8px;
+
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: stretch;
+		justify-content: flex-start;
+
+		overflow: scroll;
+
+		&>button {
+			flex: 0;
+			margin: 0;
+
+			width: max-content;
+			white-space: nowrap;
+
+			padding-left: 4px;
+			padding-right: 4px;
+		}
+	}
 }

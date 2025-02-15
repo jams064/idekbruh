@@ -17,3 +17,9 @@
 .l-2 {
 	z-index: 200;
 }
+
+.windowlayer {
+	height: calc(100vh - 30px);
+	min-height: calc(100vh - 30px);
+	max-height: calc(100vh - 30px);
+}
