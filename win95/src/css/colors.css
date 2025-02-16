@@ -6,4 +6,6 @@
 
     --default-tb-col: #000080;
     --default-desktop-bg-col: cadetblue;
+
+    --inactive-tb-bg: linear-gradient(90deg, var(--darker-bg-col), var(--dim-bg-col));
 }

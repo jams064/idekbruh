@@ -1,9 +1,18 @@
-// TASKBAR
+// Taskbar.js
+// Controls the taskbar and items associated with it (start menu, widgets)
+
+// REFERENCES
 
 const Taskbar = document.querySelector(".taskbar");
 const StartButton = document.querySelector("#btn_start");
 const StartMenu = document.querySelector("#menu_start");
 const TaskbarMenu = document.querySelector("#menu_taskbar");
+
+const TimeLabel = document.querySelector("#label_time");
+
+// VALUES
+
+const DateObject = new Date(Date.now());
 
 // HANDLERS
 
@@ -46,7 +55,7 @@ function updateTaskbar(e) {
     const eventType = e.type;
 
     if (eventType === "windowregistered") {
-        if (!getTaskbarItemForWindowId(window.id)) {
+        if (!getTaskbarItemForWindowId(window.id) && window.type == WindowType.Window) {
             const taskbarItem = createTaskbarItem(window);
 
             TaskbarMenu.appendChild(taskbarItem);
@@ -62,9 +71,14 @@ function updateTaskbar(e) {
 }
 
 function rerenderTaskbar() {
+    DateObject.setTime(Date.now());
+
     // console.log("rerender");
     WindowList.forEach(([id, window]) => {
         if (!window || !id) {
+            return;
+        }
+        if (window.type == WindowType.Menu) {
             return;
         }
 
@@ -78,6 +92,8 @@ function rerenderTaskbar() {
             taskbarItem.classList.remove("pressed");
         }
     });
+
+    TimeLabel.innerText = DateObject.toLocaleTimeString();
 }
 
 function handleShouldStartMenuClose(e) {

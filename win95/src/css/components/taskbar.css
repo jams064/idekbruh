@@ -13,20 +13,22 @@
 
 	padding: 2px;
 
+	gap: 4px;
+
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: stretch;
-	justify-content: flex-start;
+	justify-content: space-between;
 
-	&>div {
-		margin-left: 8px;
-
+	&>#menu_taskbar {
 		display: flex;
 		flex-flow: row nowrap;
 		align-items: stretch;
 		justify-content: flex-start;
 
 		overflow: scroll;
+
+		flex: 1;
 
 		&>button {
 			flex: 0;
@@ -38,5 +40,10 @@
 			padding-left: 4px;
 			padding-right: 4px;
 		}
+	}
+
+	&>div:last-child {
+		padding: 0 4px;
+		margin-right: 2px;
 	}
 }

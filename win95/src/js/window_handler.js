@@ -1,3 +1,6 @@
+// Window_Handler.js
+// Handles all windows, attached to every created window by default.
+
 (() => {
 	// SCRIPT CONSTANTS
 
@@ -6,7 +9,7 @@
 
 	// REFERENCES
 
-	const WindowTitleBar = thisWindowElement.querySelector("#section_titlebar")
+	const WindowTitleBar = thisWindowElement.querySelector("#section_titlebar");
 
 	const WindowCloseButton = thisWindowElement.querySelector("#btn_close");
 	const WindowMaximizeButton = thisWindowElement.querySelector("#btn_maximize");
@@ -102,7 +105,7 @@
 
 	// Register drag callbacks
 
-	WindowTitleBar.addEventListener("mousedown", handleWindowDragStart);
+	WindowTitleBar?.addEventListener("mousedown", handleWindowDragStart);
 	document.addEventListener("mouseup", handleWindowDragStop);
 
 	// Register button callbacks
@@ -110,6 +113,23 @@
 	WindowCloseButton?.addEventListener("click", handleCloseButton);
 	WindowMinimizeButton?.addEventListener("click", handleMinimizeButton)
 	WindowMaximizeButton?.addEventListener("click", handleMaximizeButton)
+
+	if (thisWindowClass.type == WindowType.Menu) {
+		thisWindowElement.addEventListener("mouseleave", () => {
+
+		});
+
+		if (thisWindowClass.parent) {
+			console.log(thisWindowClass.parent)
+			thisWindowClass.parent.addEventListener("mouseleave", (e) => {
+				if (thisWindowClass.get)
+			})
+		}
+	}
+
+	thisWindowElement.addEventListener("mouseenter", () => {
+		WindowList.mousedOverWindow = thisWindowElement;
+	})
 
 	// Try to run window handler
 

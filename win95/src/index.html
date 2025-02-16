@@ -15,15 +15,15 @@
 </head>
 
 <body>
-	<div class="windowlayer l-0"></div>
-	<div class="systemlayer l-1">
+	<div class="windowlayer l-0"></div> <!-- Div that holds windows rendered elements -->
+	<div class="systemlayer l-1"> <!-- Div that holds system components (taskbar, startmenu, etc) -->
 		<div class="startmenu hidden" id="menu_start">
 			<div class="leftsidebrand">
 				<p><b>Browser</b> 95</p>
 			</div>
 			<div class="categorylist">
-				<button class="startmenucategory" id="btn_start_pages">
-					<img src="./assets/programs_icon.png" />Pages
+				<button class="startmenucategory" id="btn_start_pages" onmouseenter="showMenu(AppsMenuConfig, this)">
+					<img src="./assets/programs_icon.png" />Apps
 				</button>
 				<button class="startmenucategory" id="btn_start_about">
 					<img src="./assets/help_icon.png" />About
@@ -44,9 +44,14 @@
 			<div class="nospacing" id="menu_taskbar">
 
 			</div>
+			<div class="inset nomargin">
+				<div id="label_time">
+					0:00 PM
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="desktoplayer l-bottom">
+	<div class="desktoplayer l-bottom"> <!-- Div that holds the desktop, currently only holds background though -->
 		<div class="desktopbackground"></div>
 		<div class="desktopicons"></div>
 	</div>

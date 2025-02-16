@@ -1,3 +1,6 @@
+// Windows.js
+// Holds window related classes and methods, controls window rendering and 
+
 // REFERENCES
 
 const WindowLayer = document.querySelector(".windowlayer");
@@ -17,6 +20,7 @@ class WindowList {
     static windows = {};
 
     static #focusedWindow;
+    static mousedOverWindow;
 
     static get length() {
         return Object.entries(this.windows).length;
@@ -122,6 +126,7 @@ class WindowClass {
     maximized = false;
 
     handler = undefined;
+    parent = undefined;
 
     menuBarItems = [];
     cleanupTasks = [];
@@ -158,7 +163,30 @@ class WindowClass {
                 </div>
             `;
         } else if (this.type == WindowType.Menu) {
+            return `
+                <div class="window hidden" id="${this.id}">
+                    <div class="body">${this.body}</div>
+                </div>
+            `
         }
+    }
+
+    getParentElementsRecursive() {
+        if (this.parent) {
+            const parentClass = WindowList.getWindowFromId(this.parent.id);
+            if (parentClass) {
+                return [
+                    ...parentClass.getParentElementsRecursive(),
+                    this.parent
+                ]
+            } else {
+                return [
+                    this.parent
+                ]
+            }
+        }
+
+        return [];
     }
 
     register() {
@@ -180,15 +208,27 @@ class WindowClass {
 
         thisWindowElement.style.setProperty("--width", this.width + "px");
         thisWindowElement.style.setProperty("--height", this.height + "px");
-        thisWindowElement.style.setProperty("--x", this.x + "px");
-        thisWindowElement.style.setProperty("--y", this.y + "px");
 
-        thisWindowElement.style.setProperty("z-index", this.zindex);
+        if (this.type == WindowType.Window || !this.parent) {
+            thisWindowElement.style.setProperty("--x", this.x + "px");
+            thisWindowElement.style.setProperty("--y", this.y + "px");
+        } else if (this.type == WindowType.Menu) {
+            const [poffx, poffy] = getElementPositionRecursive(this.parent);
+            console.log(poffx, poffy)
 
-        thisWindowElement.querySelector(".title").innerHTML = `
-            ${this.icon ? `<img src="${this.icon}" />` : ""}
-                            <p>${this.title}</p>
-        `;
+            thisWindowElement.style.setProperty("--x", `${this.parent.clientWidth + poffx}px`);
+            thisWindowElement.style.setProperty("--y", `${poffy}px`);
+        }
+
+        thisWindowElement.style.setProperty("z-index", this.type == WindowType.Window ? this.zindex : 1000000);
+        thisWindowElement.setAttribute("data-type", this.type);
+
+        if (this.type == WindowType.Window) {
+            thisWindowElement.querySelector(".title").innerHTML = `
+                ${this.icon ? `<img src="${this.icon}" />` : ""}
+                                <p>${this.title}</p>
+            `;
+        }
 
         if (WindowList.getFocusedWindow() === this) {
             thisWindowElement.setAttribute("data-focused", "");
@@ -254,6 +294,20 @@ class WindowClass {
 
 // FUNCTIONS
 
+function getWindowWithMouseContact() {
+    return mouseContactedElement;
+}
+
+function getElementPositionRecursive(element) {
+    if (element.offsetParent) {
+        const [pOffsetX, pOffsetY] = getElementPositionRecursive(element.offsetParent);
+
+        return [element.offsetLeft + pOffsetX, element.offsetTop + pOffsetY];
+    } else {
+        return [element.offsetLeft, element.offsetTop];
+    }
+}
+
 function rerenderWindows() {
     const renderedWindows = WindowLayer.children;
 
@@ -290,20 +344,39 @@ function rerenderWindows() {
     dispatchEvent(new CustomEvent("windowsrerendered"));
 }
 
-function handleShouldStartMenuClose(e) {
-    WindowList.forEach(([_, window]) => {
+function getWindowFromMouseEvent(e) {
+    const windows = Object.entries(WindowList.windows);
+
+    for (let i = 0; i < windows.length; i++) {
+        const [_, window] = windows[i];
+
         const element = window.getElementIfExists();
-        if (!element) return;
+        if (!element) continue;
 
-        // console.log(element, e);
+        if (element.contains(e.target)) return window;
+    }
+}
 
-        if (element.contains(e.target)) {
-            window.focus();
-        }
+function handleDocumentClick(e) {
+    const clickedWindow = getWindowFromMouseEvent(e);
+
+    clickedWindow?.focus();
+}
+
+function showMenu(menuConfig, parent) {
+    // console.log(menuConfig);
+
+    const newMenu = new WindowClass({
+        ...menuConfig,
+
+        type: WindowType.Menu,
+        parent: parent ?? undefined,
     })
+
+    newMenu.register();
 }
 
 // INIT
 
 rerenderWindows();
-document.addEventListener("mousedown", handleShouldStartMenuClose)
+document.addEventListener("mousedown", handleDocumentClick);

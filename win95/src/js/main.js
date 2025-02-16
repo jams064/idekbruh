@@ -1,6 +1,1 @@
-// REFERENCES
-
-
-
-// HANDLERS
-
+// This script doesn't do anything right now, maybe it will

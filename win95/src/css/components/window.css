@@ -27,8 +27,25 @@ window,
 	display: inline-flex;
 	flex-flow: column nowrap;
 
+	&[data-type="1"] {
+		height: auto;
+		width: max-content;
+		min-width: 100px;
+
+		padding: 0;
+
+		&>.body {
+			padding: 0;
+		}
+	}
+
 	&[data-focused] {
 		box-shadow: none;
+
+		&>.topbar {
+			background: none;
+			background-color: var(--default-tb-col) !important;
+		}
 	}
 
 	&[data-maximized] {
@@ -57,7 +74,7 @@ window,
 
 		height: 24px;
 
-		background-color: var(--default-tb-col);
+		background: var(--inactive-tb-bg);
 		color: white;
 
 		&>.title {

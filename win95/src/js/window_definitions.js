@@ -1,3 +1,6 @@
+// Window_Definitions.js
+// Holds definitions for windows so they aren't written inline
+
 const AboutWindowConfig = {
     title: "About",
     icon: "./assets/help_icon.png",
@@ -58,4 +61,14 @@ const WindowWriterConfig = {
             newWindow.register();
         });
     }
+}
+
+const AppsMenuConfig = {
+    title: "AppsMenu",
+
+    body: `
+        <div class="listcontainer vertical">
+            <button>Text</button>
+        </div>
+    `
 }
